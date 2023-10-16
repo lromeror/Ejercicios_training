@@ -8,7 +8,7 @@ data = {
     "prompt": [],
     "completion": []
 }
-with open("Ejercicios/resoluciones.txt", 'r') as file:
+with open("Ejercicios/resoluciones.txt", 'r', encoding='utf-8') as file:
     texto = file.read().replace("#","")
     l_texto = texto.split('"""')
     # El primero es ' '
