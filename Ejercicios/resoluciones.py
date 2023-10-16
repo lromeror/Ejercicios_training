@@ -365,3 +365,205 @@ Implemente una que reciba un numero entero positivo y determine el factorial de 
 #    else :
 #        return num * factorial(num-1)
 #print(factorial(4))
+
+"""
+datos="Ventas;Luis|Contabilidad;Pedro|Sistemas;Armando|Ventas;Juan|Marketing;" \
+    "Maria|Marketing;Luisa|Marketing;Rosa|Sistemas;Mariana|Contabilidad;" \
+    "Laura|Ventas;Melanie|Logística;Aura|Logística;Lady|Ventas;" \
+    "Alexa|Sistemas;Hugo|Recursos Humanos;Matías"
+
+    Escriba un programa que construya un diccionario donde las clases serán los nombres de áreas de la empresa y los valores serán listas
+    con los nombres de los empleados que pertenecen a cada área. Ejemplo:
+    {'Ventas': ['Luis', 'Juan', 'Melanie', 'Alexa'], 'Contabilidad': ['Pedro', 'Laura'], 
+    'Sistemas': ['Armando', 'Mariana', 'Hugo'], 'Marketing': ['Maria', 'Luisa', 'Rosa'], 'Logística': ['Aura', 'Lady'], 
+    'Recursos Humanos': ['Matías']}
+
+"""
+#datos = "Ventas;Luis|Contabilidad;Pedro|Sistemas;Armando|Ventas;Juan|Marketing;" \
+#        "Maria|Marketing;Luisa|Marketing;Rosa|Sistemas;Mariana|Contabilidad;" \
+#        "Laura|Ventas;Melanie|Logística;Aura|Logística;Lady|Ventas;" \
+#        "Alexa|Sistemas;Hugo|Recursos Humanos;Matías"
+#
+#pares = datos.split('|')
+#
+#diccionario_empleados = {}
+#
+#for par in pares:
+#    area, empleado = par.split(';')
+#    if area in diccionario_empleados:
+#        diccionario_empleados[area].append(empleado)
+#    else:
+#        diccionario_empleados[area] = [empleado]
+#
+#print(diccionario_empleados)
+"""
+Escribir un programa que vaya solicitando al usuario que ingrese nombres. 
+El programa debe iniciar con un diccionario vacío que simulará una agenda e irá agregando los datos que el usuario ingrese.
+
+a. Si el nombre se encuentra en la agenda (implementada con un diccionario previamente), debe mostrar el teléfono y, 
+opcionalmente, permitir modificarlo si no es correcto.
+
+b. Si el nombre no se encuentra, debe permitir ingresar el teléfono correspondiente. 
+El usuario puede utilizar la cadena "*", para salir del programa. Es decir, 
+si el usuario ingresa un * en lugar de un nombre, se finaliza el programa.
+Muestre el diccionario con su contenido actual en cada iteración.
+
+Al final, debe tener un diccionario donde las claves serán los nombres y los valores serán los números de teléfono. Muestre el diccionario.
+"""
+#dic_agenda={'Luis': 0989}
+#print("Bienvenido al sistema de agenda")
+#
+#nombre=input("Ingrese el nombre: ")
+#
+#if (nombre not in dic_agenda) and (nombre!="*"):
+#    num_telef=int(input("Ingrese el numero de telefono: "))
+#    dic_agenda[nombre]=num_telef
+#
+#elif nombre!='*':
+#    print('El numero de telefono es: '+str(dic_agenda[nombre]))
+#    descision=input("El numero de telefono es correcto S/N? ").lower()
+#    
+#    while descision!='s' and descision!='n':
+#        descision=input("Ingrese una opcion correcta S/N: ")
+#
+#    if descision=='n':
+#        num_telef=int(input('Ingrese el nuevo numero: '))
+#        dic_agenda[nombre]=num_telef
+#        
+#print(dic_agenda) 
+
+"""
+Países
+
+Usted escribirá un programa que ayudará a personas alrededor del mundo a decidir cuál es el país al cual quieren ir a vivir cuando se jubilen.
+ Para ello su programa ofrecerá información sobre el costo de vida usando las métricas descritas debajo.
+
+1. Escriba la función cargar Datos(informacion) que recibe una lista con la información de indicadores de ciudades,
+ cada elemento tiene la siguiente información "ciudad,metrica,valorDeMetrica".
+   La función retorna un diccionario con la estructura descrita a continuación:
+
+{
+
+    ("Guayaquil", "precioCasas"):130000, 
+    ("Guayaquil", temperatura"):29,
+    ("Cuenca","precioCasas"):120000,
+    ("Cuenca", "temperatura"):22
+
+}
+
+2. Escriba la función metricaPais(dicc, metrica, paises) que recibe el diccionario de datos con la estructura del diccionario generado 
+en la función anterior, 
+una métrica que puede ser "precioCasas" o "temperatura", y el diccionario de países que tiene como clave el nombre del país
+y como valor la lista de ciudades para ese país. 
+Esta función calcula el valor promedio de la métrica por país y retorna un diccionario cuya clave es una tupla con el país y la métrica, 
+y cuyo valor es el valor promedio de la métrica. 
+Por ejemplo, para Guayaquil y Cuenca que pertenecen al mismo país se calcula el promedio de la métrica y se lo asigna al país Ecuador:
+
+metricaPais(dicc, "temperatura")
+{
+    ("Ecuador","temperatura"):25.5,
+    ("Colombia", "temperatura"): 20.0
+}
+
+"""
+#informacion = ('Cuenca,temperatura,22', 'Guayaquil,precioCasas,130000', 'Cuenca,precioCasas,120000',
+#               'Bogota,temperatura,20', 'Guayaquil,temperatura,29')
+#
+#paises = {'Ecuador': ['Guayaquil', 'Cuenca',
+#                      'Machala'], 'Colombia': ['Bogota']}
+#
+#
+#informacion = list(informacion)
+
+#
+#def cargarDatos(informacion):
+#    dic = {}
+#    for ciudad in informacion: 
+#        listClave = []
+#        listCiudad = ciudad.split(',')  
+#        for i in range(len(listCiudad)-1):
+#            clave = listCiudad[i]
+#            listClave.append(clave)
+#        tuplaClave = tuple(listClave)
+#        dic[tuplaClave] = int(listCiudad[2])
+#
+#    return dic
+#
+#
+#diccCargado = cargarDatos(informacion)
+#
+#
+#def metricaPais(dicc, metrica, paises):
+#    dic2 = {}
+#    # paises={'Ecuador':['Guayaquil','Cuenca'],'Colombia':['Bogota']}
+#    for pais, list_ciudad in paises.items():
+#        no = 0
+#        for tupla, valorMetrica in dicc.items():  
+#            ciu, metr = tupla  
+#            if ciu in list_ciudad and metr == metrica:
+#                list_clave = [pais, metr]  
+#                clavedic = tuple(list_clave)  
+#                no =no+ 1
+#                if clavedic not in dic2:
+#                    dic2[clavedic] = valorMetrica/no
+#                else:
+#                    dic2[clavedic] = (dic2[clavedic]+valorMetrica)/no
+#                   
+#    print(dic2)
+#
+#
+#metricaPais(diccCargado, 'temperatura', paises)
+
+"""
+artistas = [
+('Marco Antonio', 'Mexico', ("viernes","sabado"), {"rock- latino","baladas"} ),
+('Louis Michael','Puerto Rico',("viernes","domingo"),{"pop","baladas"}),
+('MLos cuatro','Chile',("viernes","sabado"),{"rock- latino","pop","pop-rock"}),
+('Mariana Hernandez','Chile',("sabado"),{"rancheras"}),
+('Metallica','Estados Unidos',("domingo",),{"kearn-pop","pop"}),
+('Yutu','Irlanda',("domingo",),{"kearn-pop","pop"}),
+('Justin Bieber', 'Estados Unidos',("sabado","domingo"),{"baladas","rock"}) ]
+
+# 1. Escriba una funcion que reciba la lista de artistas y retorna una lista con los dias del festival.
+# 2. Escriba una funcion que reciba la lista de artista y el dia, donde retorna una lista con los artistas disponible ese dia 
+
+"""
+#artistas = [
+#    ('Marco Antonio', 'Mexico', ("viernes", "sabado"), {"rock-latino", "baladas"}),
+#    ('Louis Michael','Puerto Rico',("lunes", "domingo"),{"pop", "baladas"}),
+#    ('Los cuatro','Chile',("viernes", "sabado"),{"rock-latino", "pop", "pop-rock"}),
+#    ('Mariana Hernandez','Chile',("sabado","viernes"),{"rancheras"}),
+#    ('Metallica','Estados Unidos',("domingo","martes"),{"kearn-pop", "pop"}),
+#    ('Yutu','Irlanda',("domingo","lunes","jueves"),{"kearn-pop", "pop"}),
+#    ('Justin Bieber', 'Estados Unidos',("sabado", "domingo"),{"baladas", "rock"})
+#]
+#def obtener_dias_festival(artistas):
+#    dias_festival = set()
+#
+#    for artista in artistas:
+#        dias = artista[2]
+#        for dia in dias:
+#            dias_festival.add(dia)
+#
+#    return list(dias_festival)
+#
+#dias_del_festival = obtener_dias_festival(artistas)
+#print(dias_del_festival)
+#
+#def consulta_artista(artistas,dia):
+#    lis_art=[]
+#    for tupla in artistas:
+#        if dia in tupla[2]:
+#            lis_art.append(tupla[0])
+#    return lis_art
+#print(consulta_artista(artistas,'viernes'))
+
+"""
+Escribir un programa que pregunte al usuario los números ganadores de la lotería primitiva,
+ los almacene en una lista y los muestre por pantalla ordenados de menor a mayor.
+"""
+#premiado = []
+#for i in range(6):
+#    premiado.append(int(input("Introduce un número ganador: ")))
+#premiado.sort()
+#print("Los números ganadores son " + str(premiado))
